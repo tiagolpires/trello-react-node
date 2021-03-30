@@ -8,12 +8,12 @@ const baseUrl = `https://api.trello.com/1/cards`
 module.exports = {
     async create(req, res) {
         try {
-            const {name} = req.body
+            const {cardName} = req.body
             const {email} = req.body
             const {desc} = req.body
             const idList = '60627e4d0c12d660d658642e'
 
-            axios.post(`${baseUrl}?key=${apiKey}&token=${apiToken}&idList=${idList}&name=${name}`)
+            axios.post(`${baseUrl}?key=${apiKey}&token=${apiToken}&idList=${idList}&name=${cardName}`)
             .then((response) => {
                 res.send('Ok')
             })
