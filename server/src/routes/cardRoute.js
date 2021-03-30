@@ -4,6 +4,6 @@ const routes = express.Router()
 
 const CardController = require('../controllers/cardController')
 
-routes.get('/', CardController.teste)
+routes.post('/card', CardController.create)
 
 module.exports = routes
