@@ -9,6 +9,10 @@ const PORT = process.env.PORT || 3001
 app.use(cors()) 
 app.use(express.json()) 
 
+app.get('/', (req, res) => {
+    res.json({teste: 'deubom'})
+})
+
 app.use('/api', cardRoute)
 
 if(process.env.NODE_ENV === 'production') {

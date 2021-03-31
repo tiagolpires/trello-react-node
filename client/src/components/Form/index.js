@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Api from '../../Api'
+import createCard from '../../Api'
 import formValidate from '../../FormValidation'
 import './style.css'
 
@@ -18,13 +18,17 @@ const Index = () => {
         setErrorsInitialValues()
         setSucessfulMessage("")
 
+        const deubomResponse = await fetch('http://localhost:3001')
+        const deubomData = await deubomResponse.json()
+        console.log(deubomData)
+
         const isFormValidate = formValidate(cardName, setCardNameError, email, setEmailError, desc, setDescError)
         if(!isFormValidate) {
             return 
         }
 
         const body = {cardName: cardName, email: email, desc: desc}
-        const apiRequest = await Api.createCard(body)
+        const apiRequest = await createCard(body)
         if(!apiRequest){
             setErrorMessage('Por favor verifique os campos e tente novamente')
             return
