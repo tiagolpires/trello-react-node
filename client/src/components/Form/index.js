@@ -18,10 +18,6 @@ const Index = () => {
         setErrorsInitialValues()
         setSucessfulMessage("")
 
-        const deubomResponse = await fetch('http://localhost:3001/api')
-        const deubomData = await deubomResponse.json()
-        console.log(deubomData)
-
         const isFormValidate = formValidate(cardName, setCardNameError, email, setEmailError, desc, setDescError)
         if(!isFormValidate) {
             return 
