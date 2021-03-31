@@ -18,7 +18,7 @@ const Index = () => {
         setErrorsInitialValues()
         setSucessfulMessage("")
 
-        const deubomResponse = await fetch('http://localhost:3001')
+        const deubomResponse = await fetch('http://localhost:3001/api')
         const deubomData = await deubomResponse.json()
         console.log(deubomData)
 
