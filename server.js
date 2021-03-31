@@ -10,4 +10,8 @@ app.use(express.json())
 
 app.use('/api', cardRoute)
 
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'))
+}
+
 app.listen(PORT, console.log(`Server running at ${PORT}`))
