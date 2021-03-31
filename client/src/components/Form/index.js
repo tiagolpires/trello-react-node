@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Api from '../../Api'
+import createCard from '../../Api'
 import formValidate from '../../FormValidation'
 import './style.css'
 
@@ -24,7 +24,7 @@ const Index = () => {
         }
 
         const body = {cardName: cardName, email: email, desc: desc}
-        const apiRequest = await Api.createCard(body)
+        const apiRequest = await createCard(body)
         if(!apiRequest){
             setErrorMessage('Por favor verifique os campos e tente novamente')
             return
