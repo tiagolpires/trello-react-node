@@ -6,10 +6,9 @@ const index = () => {
     return (
         <>
             <Header/>
-            <section className="main">
-                <h1>Main Page</h1>
+            <main className="main-content">
                 <Form/>
-            </section>
+            </main>
         </>
     )
 }
