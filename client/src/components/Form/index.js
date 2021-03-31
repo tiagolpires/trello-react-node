@@ -10,36 +10,46 @@ const Index = () => {
     const [emailError, setEmailError] = useState("")
     const [desc, setDesc] = useState("")
     const [descError, setDescError] = useState("")
-    const [sucessfulCreate, setSucessfulCreate] = useState("")
+    const [sucessfulMessage, setSucessfulMessage] = useState("")
+    const [errorMessage, setErrorMessage] = useState("")
 
-    const setInitialValue = () => {
+    const onFormSubmit = async(e) => {
+        e.preventDefault()
+        setErrorsInitialValues()
+        setSucessfulMessage("")
+
+        const isFormValidate = formValidate(cardName, setCardNameError, email, setEmailError, desc, setDescError)
+        if(!isFormValidate) {
+            return 
+        }
+
+        const body = {cardName: cardName, email: email, desc: desc}
+        const apiRequest = await Api.createCard(body)
+        if(!apiRequest){
+            setErrorMessage('Por favor verifique os campos e tente novamente')
+            return
+        }
+        setInputsInitialValues()
+        setErrorsInitialValues()
+        setSucessfulMessage('The card was created sucessfully')
+    }
+
+    const setErrorsInitialValues = () => {
         setCardNameError("")
         setEmailError("")
         setDescError("")
+        setErrorMessage("")
     }
-
-    const fetchApi = async(e) => {
-        e.preventDefault()
-        setInitialValue()
-        setSucessfulCreate("")
-
-        const isValidate = formValidate(cardName, setCardNameError, email, setEmailError, desc, setDescError)
-
-        if(isValidate) {
-            const body = {
-                cardName: cardName,
-                email: email,
-                desc: desc
-            }
-            Api.createCard(body)
-            setInitialValue()
-            setSucessfulCreate('The card was created sucessfully')
-        }
+    const setInputsInitialValues = () => {
+        setCardName("")
+        setEmail("")
+        setDesc("")
     }
 
     return (
-        <form onSubmit={fetchApi}>
-            <h2>{sucessfulCreate}</h2>
+        <form onSubmit={onFormSubmit}>
+            <h2>{sucessfulMessage}</h2>
+            <h2>{errorMessage}</h2>
             <div>
                 <label htmlFor="name">Name</label>
                 <input type="text" name="name" placeholder="Name" value={cardName} onChange={ (e) => setCardName(e.target.value)}/>

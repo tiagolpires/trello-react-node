@@ -14,6 +14,7 @@ const formValidation = (cardName, setCardNameError, email, setEmailError, desc, 
     }
     if(desc.length === 0) {
         setDescError('Please enter a description')
+        isError = true
     }
     if(isError) {
         return false

@@ -1,4 +1,5 @@
 const axios = require('axios')
+const createCard = require('../validation/createCardValidation') 
 require('dotenv').config()
 
 const apiKey = process.env.API_KEY
@@ -7,6 +8,12 @@ const baseUrl = `https://api.trello.com/1/cards`
 
 module.exports = {
     async create(req, res) {
+        const isValidate = createCard.validate(req.body)
+        if(isValidate.error) {
+            res.status(422).send('Error')
+            return
+        }
+
         const {cardName} = req.body
         const {email} = req.body
         const {desc} = req.body
@@ -14,7 +21,7 @@ module.exports = {
 
         axios.post(`${baseUrl}?key=${apiKey}&token=${apiToken}&idList=${idList}&name=${cardName}`)
         .then((response) => {
-            res.send('Ok')
+            res.status(200).send('Sucess')
         })
         .catch((error) => {
             console.error(error.message)
