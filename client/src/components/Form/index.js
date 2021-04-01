@@ -16,6 +16,7 @@ const Index = () => {
     const [desc, setDesc] = useState("")
     const [descError, setDescError] = useState("")
     const [checkBox, setCheckBox] = useState("")
+    const [checkBoxError, setCheckBoxError] = useState("")
     const [dropDown, setDropDown] = useState("")
     const [selectedTags, setSelectedTags] = useState([])
     const [selectedTagsError, setSelectedTagsError] = useState("")
@@ -27,12 +28,12 @@ const Index = () => {
         setErrorsInitialValues()
         setSucessfulMessage("")
 
-        const isFormValidate = formValidate(cardName, setCardNameError, email, setEmailError, desc, setDescError, selectedTags, setSelectedTagsError)
+        const isFormValidate = formValidate(cardName, setCardNameError, email, setEmailError, desc, setDescError, selectedTags, setSelectedTagsError, checkBox, setCheckBoxError)
         if(!isFormValidate) {
             return 
         }
 
-        const body = {cardName: cardName, email: email, desc: desc, tags: selectedTags}
+        const body = {cardName: cardName, email: email, desc: desc, tags: selectedTags, checkBox: checkBox}
         const apiRequest = await createCard(body)
         if(!apiRequest){
             setErrorMessage('Por favor verifique os campos e tente novamente')
@@ -49,6 +50,7 @@ const Index = () => {
         setDescError("")
         setErrorMessage("")
         setSelectedTagsError("")
+        setCheckBoxError("")
     }
     const setInputsInitialValues = () => {
         setCardName("")
@@ -72,7 +74,7 @@ const Index = () => {
                     <TextArea name={"description"} labelValue={"Descrição"} placeholder={"Insira uma descrição"} inputValue={desc} setValue={setDesc} showError={descError} />
                 </div>
                 <div className="right-form">
-                    <Checkboxes checkBox={checkBox} setCheckBox={setCheckBox}/>
+                    <Checkboxes setCheckBox={setCheckBox} checkBoxError={checkBoxError}/>
                     <DropDown setDropDown={setDropDown} dropDown={dropDown}/>
                     <Tags selectedTags={selectedTags} setSelectedTags={setSelectedTags} selectedTagsError={selectedTagsError}/>
                 </div>

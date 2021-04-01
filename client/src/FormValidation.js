@@ -1,4 +1,4 @@
-const formValidation = (cardName, setCardNameError, email, setEmailError, desc, setDescError, selectedTags, setSelectedTagsError) => {
+const formValidation = (cardName, setCardNameError, email, setEmailError, desc, setDescError, selectedTags, setSelectedTagsError, checkBox, setCheckBoxError) => {
     let isError = false
     if(cardName.length === 0) {
         setCardNameError('Insira um nome')
@@ -18,6 +18,10 @@ const formValidation = (cardName, setCardNameError, email, setEmailError, desc, 
     }
     if(selectedTags.length === 0) {
         setSelectedTagsError('Escolha pelo menos uma tag')
+        isError = true
+    }
+    if(checkBox.length === 0) {
+        setCheckBoxError('Escolha a posição do card')
         isError = true
     }
     if(isError) {

@@ -1,6 +1,6 @@
 import './style.css'
 
-const index = ({ checkBox, setCheckBox }) => {
+const index = ({ setCheckBox, checkBoxError }) => {
     const handleCheckBoxClick = (box) => {
         if(box.classList.contains('check-selected')) {
             setCheckBox('')
@@ -17,18 +17,15 @@ const index = ({ checkBox, setCheckBox }) => {
         <div className="checkboxes-content">
             <div className="checkboxes-container">
                 <div className="checkbox-container">
-                    <div className="checkbox" id="option-1" onClick={(e) => handleCheckBoxClick(e.target)}></div>
-                    <label htmlFor="option-1">Opção 1</label>
+                    <div className="checkbox" id="top" onClick={(e) => handleCheckBoxClick(e.target)}></div>
+                    <label htmlFor="top-position">Adicionar ao topo</label>
                 </div>
                 <div className="checkbox-container">
-                    <div className="checkbox" id="option-2" onClick={(e) => handleCheckBoxClick(e.target)}></div>
-                    <label htmlFor="option-2">Opção 2</label>
-                </div>
-                <div className="checkbox-container">
-                    <div className="checkbox" id="option-3" onClick={(e) => handleCheckBoxClick(e.target)}></div>
-                    <label htmlFor="option-3">Opção 3</label>
+                    <div className="checkbox" id="bottom" onClick={(e) => handleCheckBoxClick(e.target)}></div>
+                    <label htmlFor="bottom-position">Adicionar por último</label>
                 </div>
             </div>
+            <span className="input-error-message">{checkBoxError}</span>
         </div>
     )
 }
