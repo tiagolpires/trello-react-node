@@ -13,7 +13,7 @@ const index = ({ selectedTags, setSelectedTags, selectedTagsError }) => {
 
     return (
         <div className="tags-container">
-            <label className="testtt" htmlFor="tags">Tags</label>
+            <label htmlFor="tags">Tags</label>
             <div className="tag-row">
                 <div className="tag" id="606605513bb36c0edc2055f2" onClick={(e) => handleTagClick(e.target)}>Web</div>
                 <div className="tag" id="6066055b44a62f5fa45461a2" onClick={(e) => handleTagClick(e.target)}>Ilustration</div>
