@@ -1,0 +1,38 @@
+.tags-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.tag-row {
+    display: flex;
+}
+
+.tag {
+    padding: 10px;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 3px 14px 5px 0;
+    color: #BDBDBD;
+    font-size: 15px;
+}
+
+.tag.selected {
+    background-color: #5680FF;
+    color: #ffff;
+    border-color: #5680FF;
+}
+
+@media(max-width: 767px) {
+    .tags-container {
+        margin-bottom: 20px;
+    }
+}
+
+@media(max-width: 400px) {
+    .tag {
+        padding: 7px;
+        margin: 3px 8px 5px 0;
+        font-size: 12px;
+    }
+}

@@ -1,7 +1,8 @@
 import { useState } from 'react'
+import Tags from '../Tags'
+import Checkboxes from '../Checkboxes'
 import createCard from '../../Api'
 import formValidate from '../../FormValidation'
-import Tags from '../Tags'
 import './style.css'
 
 const Index = () => {
@@ -75,23 +76,7 @@ const Index = () => {
                     </div>
                 </div>
                 <div className="right-form">
-                    <div className="checkboxs-content">
-                        <div className="checkboxs-container">
-                            <div className="checkbox-container">
-                                <div className="checkbox"></div>
-                                <label htmlFor="option-1">Opção 1</label>
-                            </div>
-                            <div className="checkbox-container">
-                                <div className="checkbox"></div>
-                                <label htmlFor="option-2">Opção 2</label>
-                            </div>
-                            <div className="checkbox-container">
-                                <div className="checkbox"></div>
-                                <label htmlFor="option-3">Opção 3</label>
-                            </div>
-                        </div>
-                        <span className="input-error-message">{emailError}</span>
-                    </div>
+                    <Checkboxes/>
                     <div className="input-container">
                         <label htmlFor="dropdown">Dropdown</label>
                         <input type="text" name="dropdown" placeholder="Dropdown"/>
