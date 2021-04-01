@@ -1,7 +1,7 @@
 import './style.css'
 
 const index = ({ selectedTags, setSelectedTags, selectedTagsError }) => {
-    const handleTagClick = async (tag) => {
+    const handleTagClick = (tag) => {
         if(tag.classList.contains("selected")){
             tag.classList.remove('selected')
             setSelectedTags(selectedTags.filter(item => item !== tag.id))
