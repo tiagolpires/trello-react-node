@@ -19,9 +19,10 @@ module.exports = {
         const {desc} = req.body
         const {tags} = req.body
         const {checkBox} = req.body
-        const idList = '60627e4d0c12d660d658642e'
+        const {completed} = req.body
+        const idList = '60660338b0cbe11cba7ef3d0'
 
-        axios.post(`${baseUrl}?key=${apiKey}&token=${apiToken}&idList=${idList}&name=${cardName}&desc=${desc}&idLabels=${tags}&pos=${checkBox}`)
+        axios.post(`${baseUrl}?key=${apiKey}&token=${apiToken}&idList=${idList}&name=${cardName}&desc=${desc}&idLabels=${tags}&pos=${checkBox}&dueComplete=${completed}`)
         .then((response) => {
             res.status(200).send('Sucess')
         })

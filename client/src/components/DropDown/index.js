@@ -1,14 +1,12 @@
 import './style.css'
 
-const index = ({ setDropDown }) => {
+const index = ({ dropDown, setDropDown }) => {
     return (
         <div className="dropdown-container">
-            <label htmlFor="dropdown">Dropdown</label>
-            <select className="dropdown" name="cars" id="cars" onChange={ (e) => setDropDown(e.target.value)}>
-                <option value="value-1">Value 1</option>
-                <option value="value-2">Value 2</option>
-                <option value="value-3">Value 3</option>
-                <option value="value-4">Value 4</option>
+            <label htmlFor="status">Status</label>
+            <select className="dropdown" name="status" value={dropDown} onChange={ (e) => setDropDown(e.target.value)}>
+                <option value="true">Completada</option>
+                <option value="false">A fazer</option>
             </select>
         </div>
     )

@@ -17,7 +17,7 @@ const Index = () => {
     const [descError, setDescError] = useState("")
     const [checkBox, setCheckBox] = useState("")
     const [checkBoxError, setCheckBoxError] = useState("")
-    const [dropDown, setDropDown] = useState("")
+    const [dropDown, setDropDown] = useState("true")
     const [selectedTags, setSelectedTags] = useState([])
     const [selectedTagsError, setSelectedTagsError] = useState("")
     const [sucessfulMessage, setSucessfulMessage] = useState("")
@@ -33,7 +33,7 @@ const Index = () => {
             return 
         }
 
-        const body = {cardName: cardName, email: email, desc: desc, tags: selectedTags, checkBox: checkBox}
+        const body = {cardName: cardName, email: email, desc: desc, tags: selectedTags, checkBox: checkBox, completed: dropDown}
         const apiRequest = await createCard(body)
         if(!apiRequest){
             setErrorMessage('Por favor verifique os campos e tente novamente')
@@ -59,8 +59,8 @@ const Index = () => {
         setSelectedTags([])
         document.querySelectorAll('.selected').forEach(item => item.classList.remove('selected'))
         setCheckBox("")
-        const isCheckSelected = document.querySelector('.check-selected')
-        if(isCheckSelected) {isCheckSelected.classList.remove('check-selected')} 
+        document.querySelector('.check-selected').classList.remove('check-selected')
+        setDropDown("true")
     }
 
     return (
