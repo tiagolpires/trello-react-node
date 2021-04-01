@@ -1,19 +1,23 @@
-const formValidation = (cardName, setCardNameError, email, setEmailError, desc, setDescError) => {
+const formValidation = (cardName, setCardNameError, email, setEmailError, desc, setDescError, selectedTags, setSelectedTagsError) => {
     let isError = false
     if(cardName.length === 0) {
-        setCardNameError('Please enter a name')
+        setCardNameError('Insira um nome')
         isError = true
     }
     if(!email.includes('@')) {
-        setEmailError('Insert a @ on the email field')
+        setEmailError('Insira um @ no campo')
         isError = true
     }
     if(email.length < 4) {
-        setEmailError('Please enter an email')
+        setEmailError('Insira um e-mail válido')
         isError = true
     }
     if(desc.length === 0) {
-        setDescError('Please enter a description')
+        setDescError('Insira uma descrição')
+        isError = true
+    }
+    if(selectedTags.length === 0) {
+        setSelectedTagsError('Escolha pelo menos uma tag')
         isError = true
     }
     if(isError) {

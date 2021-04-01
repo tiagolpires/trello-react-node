@@ -10,16 +10,17 @@ const Index = () => {
     const [emailError, setEmailError] = useState("")
     const [desc, setDesc] = useState("")
     const [descError, setDescError] = useState("")
+    const [selectedTags, setSelectedTags] = useState([])
+    const [selectedTagsError, setSelectedTagsError] = useState("")
     const [sucessfulMessage, setSucessfulMessage] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
-    const [selectedTags, setSelectedTags] = useState([])
 
     const onFormSubmit = async(e) => {
         e.preventDefault()
         setErrorsInitialValues()
         setSucessfulMessage("")
 
-        const isFormValidate = formValidate(cardName, setCardNameError, email, setEmailError, desc, setDescError)
+        const isFormValidate = formValidate(cardName, setCardNameError, email, setEmailError, desc, setDescError, selectedTags, setSelectedTagsError)
         if(!isFormValidate) {
             return 
         }
@@ -32,7 +33,7 @@ const Index = () => {
         }
         setInputsInitialValues()
         setErrorsInitialValues()
-        setSucessfulMessage('The card was created sucessfully')
+        setSucessfulMessage('O Card foi criado com sucesso')
     }
 
     const setErrorsInitialValues = () => {
@@ -40,12 +41,14 @@ const Index = () => {
         setEmailError("")
         setDescError("")
         setErrorMessage("")
+        setSelectedTagsError("")
     }
     const setInputsInitialValues = () => {
         setCardName("")
         setEmail("")
         setDesc("")
         setSelectedTags([])
+        document.querySelectorAll('.selected').forEach(item => item.classList.remove('selected'))
     }
 
     const handleTagClick = async (tag) => {
@@ -121,7 +124,7 @@ const Index = () => {
                             <div className="tag" id="60651476a781033f70e57fdf" onClick={(e) => handleTagClick(e.target)}>Icon</div>
                             <div className="tag" id="60651485359098187546e344" onClick={(e) => handleTagClick(e.target)}>Web Design</div>
                         </div>
-                        <span className="input-error-message">{emailError}</span>
+                        <span className="input-error-message">{selectedTagsError}</span>
                     </div>
                 </div>
             </div>
