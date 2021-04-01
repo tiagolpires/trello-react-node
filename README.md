@@ -12,6 +12,7 @@ Aplicação integrada com a REST API do Trello, feita com Node.Js no back-end e 
 
 ## Built With
 
+- [Trello](https://developer.atlassian.com/cloud/trello/rest/api-group-actions/) - REST API
 - [React.Js](https://pt-br.reactjs.org/) - Client Side/Validação de dados
 - [Node.Js](https://nodejs.org/en/) - Server Side
 - [Joi](https://www.npmjs.com/package/joi) - Validação de dados no Back-end
