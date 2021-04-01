@@ -1,15 +1,18 @@
-.input-container {
+.input-container,
+.dropdown-container {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
 }
 
-.input-container label {
+.input-container label,
+.dropdown-container label {
     margin-bottom: 5px;
 }
 
 .input-container input,
-.input-container textarea {
+.input-container textarea,
+.dropdown {
     padding: 10px;
     border: 1px solid #BDBDBD;
     border-radius: 5px;

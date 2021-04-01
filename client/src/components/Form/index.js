@@ -3,6 +3,7 @@ import Tags from '../Tags'
 import Checkboxes from '../Checkboxes'
 import Input from '../Input'
 import TextArea from '../TextArea'
+import DropDown from '../DropDown'
 import createCard from '../../Api'
 import formValidate from '../../FormValidation'
 import './style.css'
@@ -14,6 +15,7 @@ const Index = () => {
     const [emailError, setEmailError] = useState("")
     const [desc, setDesc] = useState("")
     const [descError, setDescError] = useState("")
+    const [dropDown, setDropDown] = useState("")
     const [selectedTags, setSelectedTags] = useState([])
     const [selectedTagsError, setSelectedTagsError] = useState("")
     const [sucessfulMessage, setSucessfulMessage] = useState("")
@@ -67,11 +69,7 @@ const Index = () => {
                 </div>
                 <div className="right-form">
                     <Checkboxes/>
-                    <div className="input-container">
-                        <label htmlFor="dropdown">Dropdown</label>
-                        <input type="text" name="dropdown" placeholder="Dropdown"/>
-                        <span className="input-error-message">{emailError}</span>
-                    </div>
+                    <DropDown setDropDown={setDropDown} dropDown={dropDown}/>
                     <Tags selectedTags={selectedTags} setSelectedTags={setSelectedTags} selectedTagsError={selectedTagsError}/>
                 </div>
             </div>
