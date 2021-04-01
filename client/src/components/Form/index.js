@@ -15,6 +15,7 @@ const Index = () => {
     const [emailError, setEmailError] = useState("")
     const [desc, setDesc] = useState("")
     const [descError, setDescError] = useState("")
+    const [checkBox, setCheckBox] = useState("")
     const [dropDown, setDropDown] = useState("")
     const [selectedTags, setSelectedTags] = useState([])
     const [selectedTagsError, setSelectedTagsError] = useState("")
@@ -55,6 +56,9 @@ const Index = () => {
         setDesc("")
         setSelectedTags([])
         document.querySelectorAll('.selected').forEach(item => item.classList.remove('selected'))
+        setCheckBox("")
+        const isCheckSelected = document.querySelector('.check-selected')
+        if(isCheckSelected) {isCheckSelected.classList.remove('check-selected')} 
     }
 
     return (
@@ -68,7 +72,7 @@ const Index = () => {
                     <TextArea name={"description"} labelValue={"Descrição"} placeholder={"Insira uma descrição"} inputValue={desc} setValue={setDesc} showError={descError} />
                 </div>
                 <div className="right-form">
-                    <Checkboxes/>
+                    <Checkboxes checkBox={checkBox} setCheckBox={setCheckBox}/>
                     <DropDown setDropDown={setDropDown} dropDown={dropDown}/>
                     <Tags selectedTags={selectedTags} setSelectedTags={setSelectedTags} selectedTagsError={selectedTagsError}/>
                 </div>

@@ -22,6 +22,12 @@
     margin-right: 10px;
 }
 
+.checkbox.check-selected{
+    background-color: #5680FF;
+    color: #ffff;
+    border-color: #5680FF;
+}
+
 @media(max-width: 400px) {
     .checkboxes-content {
         margin-bottom: 15px;
