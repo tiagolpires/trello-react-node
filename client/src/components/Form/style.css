@@ -3,6 +3,23 @@
     justify-content: space-between;
 }
 
+.sucess-message,
+.error-message {
+    padding: 5px 10px;
+    margin-bottom: 20px;
+    color: #ffff;
+    display: block;
+    border-radius: 5px;
+}
+
+.sucess-message {
+    background-color: #5680FF;
+}
+
+.error-message {
+    background-color: #ff4b4b;
+}
+
 .left-form,
 .right-form {
     width: 45%;

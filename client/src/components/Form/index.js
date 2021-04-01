@@ -63,8 +63,8 @@ const Index = () => {
 
     return (
         <form className="main-form" onSubmit={onFormSubmit}>
-            <h2>{sucessfulMessage}</h2>
-            <h2>{errorMessage}</h2>
+            {sucessfulMessage ? <span className="sucess-message">{sucessfulMessage}</span> : null}
+            {errorMessage ? <span className="error-message">{errorMessage}</span> : null}
             <div className="form-content">
                 <div className="left-form">
                     <div className="input-container">
