@@ -1,0 +1,29 @@
+.input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.input-container label {
+    margin-bottom: 5px;
+}
+
+.input-container input,
+.input-container textarea {
+    padding: 10px;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    outline-color: #5680FF;
+}
+
+.input-error-message {
+    color: red;
+    margin-top: 5px;
+}
+
+@media(max-width: 400px) {
+    .input-container {
+        margin-bottom: 15px;
+    }
+}

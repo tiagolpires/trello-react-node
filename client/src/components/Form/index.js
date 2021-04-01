@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import Tags from '../Tags'
 import Checkboxes from '../Checkboxes'
+import Input from '../Input'
+import TextArea from '../TextArea'
 import createCard from '../../Api'
 import formValidate from '../../FormValidation'
 import './style.css'
@@ -59,21 +61,9 @@ const Index = () => {
             {errorMessage ? <span className="error-message">{errorMessage}</span> : null}
             <div className="form-content">
                 <div className="left-form">
-                    <div className="input-container">
-                        <label htmlFor="name">Name</label>
-                        <input type="text" name="name" placeholder="Insira o nome do card..." value={cardName} onChange={ (e) => setCardName(e.target.value)}/>
-                        <span className="input-error-message">{cardNameError}</span>
-                    </div>
-                    <div className="input-container">
-                        <label htmlFor="email">Email</label>
-                        <input type="text" name="email" placeholder="Insira o seu e-mail..." value={email} onChange={ (e) => setEmail(e.target.value)}/>
-                        <span className="input-error-message">{emailError}</span>
-                    </div>
-                    <div className="input-container">
-                        <label htmlFor="description">Description</label>
-                        <textarea name="description" cols="30" rows="8" placeholder="Digite aqui..." value={desc} onChange={ (e) => setDesc(e.target.value)}></textarea>
-                        <span className="input-error-message">{descError}</span>
-                    </div>
+                    <Input name={"name"} labelValue={"Nome"} placeholder={"Insira o nome do card"} inputValue={cardName} setValue={setCardName} showError={cardNameError} />
+                    <Input name={"email"} labelValue={"Email"} placeholder={"Insira o seu e-mail"} inputValue={email} setValue={setEmail} showError={emailError} />
+                    <TextArea name={"description"} labelValue={"Descrição"} placeholder={"Insira uma descrição"} inputValue={desc} setValue={setDesc} showError={descError} />
                 </div>
                 <div className="right-form">
                     <Checkboxes/>
