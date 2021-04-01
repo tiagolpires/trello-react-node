@@ -79,6 +79,12 @@
     font-size: 15px;
 }
 
+.tag.selected {
+    background-color: #5680FF;
+    color: #ffff;
+    border-color: #5680FF;
+}
+
 .main-form button {
     cursor: pointer;
     border: none;
