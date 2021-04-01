@@ -6,7 +6,7 @@
 ## Sobre o projeto
 Aplicação integrada com a REST API do Trello, feita com Node.Js no back-end e React.Js no front-end.
 
-##Links
+## Links
 - [App](https://trello-react-node.herokuapp.com/) - Link para o App
 - [Trello](https://trello.com/b/AA4T6jQB/trello-interaction) - Link para a board no Trello
 
